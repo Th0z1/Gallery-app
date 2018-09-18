@@ -1,14 +1,50 @@
+
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+
+  <ion-navbar color="red">
+    <ion-title text-center>Gallery</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<ion-content id="body"padding>
+  
+  <div *ngIf="hasIt === 0">
+    <button ion-button color="red" full  (click)= "navigate('u')">Upload Files</button>
+    <button ion-button color="red" full (click)= "navigate('v')">View Gallery</button>
+  </div>
+  <ion-row *ngIf="hasIt === 1">
+    <ion-col><button ion-button block color="red" (click)="uploads('camera')">Pic</button></ion-col>
+    <ion-col><button ion-button block color="red" (click)="uploads('audio')">Audio</button></ion-col>
+    <ion-col><button ion-button block color="red" (click)="uploads('video')">Video</button></ion-col>
+    <button ion-button full color="red" (click)= "navigate('b')">Back to menu</button>
+  </ion-row>
+  <ion-row *ngIf="hasIt === 2">
+    <ion-col><button ion-button block color="red" (click)="viewUploads('p')">Pictures</button></ion-col>
+    <ion-col><button ion-button block  color="red" (click)="viewUploads('a')">Audio</button></ion-col>
+    <ion-col><button ion-button block color="red" (click)="viewUploads('v')">Video</button></ion-col>
+    <button ion-button full color="red" (click)= "nav()">Back to menu</button>
+  </ion-row>
+  <div *ngIf="moo === 1">
+    <img *ngFor="let imgUrl of images" src={{imgUrl}}>
+    <button ion-button full color="red" (click)= "navigate('b')">Back to menu</button>
+  </div>
+  <div *ngIf="moo === 3">
+    <video *ngFor="let video of videos" src={{video}} type="video/mp4" controls width="320" height="240"></video>
+    <button ion-button full color="red" (click)="navigate('b')">Back to menu</button>
+ 
+  </div>
+  <div *ngIf="moo === 4">
+    
+    <audio *ngFor="let audio of audios" controls>
+ 
+      <source src={{audio}} type="audio/mpeg">
+      <source src={{audio}} type="audio/ogg">
+      <source src={{audio}} type="audio/wav"> Your browser does not support the audio tag.
+    </audio>
+    <button ion-button full color="red" (click)="navigate('b')">Back to menu</button>
+ 
+  </div>
 </ion-content>
+ 

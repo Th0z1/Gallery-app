@@ -45,5 +45,25 @@
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
 
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAQuX79_Y25Bp3SCYsAbRRB6ma6Iyos1Ms",
+      authDomain: "gallery-654e4.firebaseapp.com",
+      databaseURL: "https://gallery-654e4.firebaseio.com",
+      projectId: "gallery-654e4",
+      storageBucket: "gallery-654e4.appspot.com",
+      messagingSenderId: "537130854765"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script>
+
 </body>
 </html>
